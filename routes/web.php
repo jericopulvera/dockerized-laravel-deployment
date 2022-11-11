@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Podcast;
+use App\Jobs\ProcessPodcast;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,6 +19,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/hello', function () {
-    return "Hello World";
+Route::get('/podcasts', function () {
+    return Podcast::all();
+});
+
+
+Route::get('/dispatch', function () {
+    ProcessPodcast::dispatch();
+
+    return 'dispatched';
 });
