@@ -38,6 +38,4 @@ RUN rm /etc/nginx/sites-available/ssl-off \
 
 EXPOSE 8080
 
-ENTRYPOINT ["/entrypoint"]
-
-# CMD ["su", "webuser", "-c", "php artisan queue:work --tries=3"]
+CMD ["su", "webuser", "-c", "php artisan queue:work --tries=3"]
